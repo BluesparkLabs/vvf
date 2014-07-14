@@ -23,11 +23,6 @@ class ViewsHandlerFieldVariableTest extends ViewsSqlTest {
     $this->resetAll();
   }
 
-  function viewsData() {
-    $data = parent::viewsData();
-    return $data;
-  }
-
   public function testFieldVariable() {
     $view = $this->getBasicView();
 
