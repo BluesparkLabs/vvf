@@ -64,14 +64,16 @@ class views_handler_field_variable extends views_handler_field {
       '#title' => t('Drupal variable'),
     );
 
-    $form['variable']['variable_name'] = array(
+    $form['variable_name'] = array(
       '#type' => 'textfield',
       '#title' => t('Variable name'),
       '#default_value' => $this->options['variable_name'],
       '#description' => t('You may enter data from this view as per the "Replacement patterns" below.'),
+      '#fieldset' => 'variable',
     );
 
     $form['variable']['variable_help'] = $form['alter']['help'];
+    $form['variable']['variable_help']['#weight'] = 100;
     unset($form['variable_help']['#dependency']);
   }
 
@@ -83,6 +85,6 @@ class views_handler_field_variable extends views_handler_field {
    */
   function render($values) {
     // Return the variable value and continue with the process.
-    return call_user_func($this->function, $this->tokenize_value($this->tokenize_value($this->options['variable_name'])));
+    return serialize(call_user_func($this->function, $this->tokenize_value($this->options['variable_name'])));
   }
 }
