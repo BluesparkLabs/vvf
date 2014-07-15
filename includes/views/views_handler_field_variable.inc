@@ -85,6 +85,7 @@ class views_handler_field_variable extends views_handler_field {
    */
   function render($values) {
     // Return the variable value and continue with the process.
-    return serialize(call_user_func($this->function, $this->tokenize_value($this->options['variable_name'])));
+    $variable = call_user_func($this->function, $this->tokenize_value($this->options['variable_name']));
+    return (is_array($variable) || is_object($variable)) ? serialize($variable) : $variable;
   }
 }
