@@ -20,7 +20,7 @@ class views_handler_field_variable extends views_handler_field {
   }
 
   /**
-   * The function used to retrieve the variable value.
+   * The function used to retrieve the value of the variable.
    *
    * @var mixed
    */
@@ -61,14 +61,14 @@ class views_handler_field_variable extends views_handler_field {
     $form['variable'] = array(
       '#type' => 'fieldset',
       '#collapsible' => FALSE,
-      '#title' => t('Drupal variable'),
+      '#title' => t('System variable'),
     );
 
     $form['variable_name'] = array(
       '#type' => 'textfield',
       '#title' => t('Variable name'),
       '#default_value' => $this->options['variable_name'],
-      '#description' => t('You may enter data from this view as per the "Replacement patterns" below.'),
+      '#description' => t('Enter the machine name of the Drupal variable to display. You may enter data from this view as per the "Replacement patterns" below.'),
       '#fieldset' => 'variable',
     );
 
@@ -84,7 +84,7 @@ class views_handler_field_variable extends views_handler_field {
    *   The values retrieved from the database.
    */
   function render($values) {
-    // Return the variable value and continue with the process.
+    // Return the variable's value and continue with the rendering process.
     $variable = call_user_func($this->function, $this->tokenize_value($this->options['variable_name']));
     return (is_array($variable) || is_object($variable)) ? serialize($variable) : $variable;
   }

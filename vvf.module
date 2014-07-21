@@ -9,8 +9,8 @@
  */
 function vvf_views_data() {
   $data['views']['variable'] = array(
-    'title' => t('Drupal variable'),
-    'help' => t('Extracts a Drupal variable and displays it as a views field.'),
+    'title' => t('System variable'),
+    'help' => t('Extracts a system variable and displays it as a Views field.'),
     'field' => array(
       'handler' => 'views_handler_field_variable',
     ),
