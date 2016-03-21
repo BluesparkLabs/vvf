@@ -26,6 +26,10 @@ All standard Views field manipulations are supported, such as rewriting the
 output value as well as usage in the "No results behavior" via replacement
 patterns.
 
+Since 7.x-1.2 a Views filter is also provided. Select
+"Global: Field against variable comparison" filter to compare a view filter
+against a system variable to filter views results.
+
 
 Authors/Credits
 ---------------
