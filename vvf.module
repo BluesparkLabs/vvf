@@ -16,6 +16,15 @@ function vvf_views_data() {
     ),
   );
 
+  $data['views']['variable_compare'] = array(
+    'title' => t('Fields variable comparison'),
+    'help' => t('Compare database field against system variable.'),
+    'filter' => array(
+      'help' => t('Use field against variable comparison to filter the result of the view.'),
+      'handler' => 'views_handler_filter_field_variable_compare',
+    )
+  );
+
   return $data;
 }
 
